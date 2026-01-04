@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>网易云音乐大数据分析可视化系统</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- 头部 -->
+        <header class="header">
+            <h1>🎵 网易云音乐大数据分析可视化系统</h1>
+            <p class="subtitle">基于Flask的音乐数据爬取、分析与可视化平台</p>
+        </header>
+
+        <!-- 状态栏 -->
+        <div class="status-bar" id="statusBar">
+            <div class="status-item">
+                <span class="status-label">数据状态:</span>
+                <span class="status-value" id="dataStatus">检查中...</span>
+            </div>
+            <div class="status-item">
+                <span class="status-label">数据源:</span>
+                <span class="status-value" id="dataSource">-</span>
+            </div>
+            <button class="btn-reload" id="reloadBtn" onclick="reloadData()">
+                🔄 重新加载数据
+            </button>
+        </div>
+
+        <!-- 导航标签 -->
+        <div class="tabs">
+            <button class="tab-btn active" onclick="showTab('overview')">📊 数据概览</button>
+            <button class="tab-btn" onclick="showTab('album')">💿 专辑分析</button>
+            <button class="tab-btn" onclick="showTab('trend')">📈 发布趋势</button>
+            <button class="tab-btn" onclick="showTab('artists')">👨‍🎤 作者分析</button>
+            <button class="tab-btn" onclick="showTab('sentiment')">💭 情感分析</button>
+        </div>
+
+        <!-- 数据概览标签页 -->
+        <div id="tab-overview" class="tab-content active">
+            <div class="grid-2">
+                <!-- 音乐类型占比 -->
+                <div class="panel">
+                    <div class="panel-header">
+                        <h2>音乐类型占比分析</h2>
+                        <p class="panel-desc">展示不同音乐类型的市场占比</p>
+                    </div>
+                    <div class="panel-body">
+                        <div id="musicTypeChart" class="chart-container"></div>
+                    </div>
+                </div>
+
+                <!-- 词云图 -->
+                <div class="panel">
+                    <div class="panel-header">
+                        <h2>音乐名称词云图</h2>
+                        <p class="panel-desc">热门音乐名称和关键词分析</p>
+                    </div>
+                    <div class="panel-body">
+                        <div id="wordcloudContainer" class="chart-container">
+                            <div class="loading">加载中</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 专辑分析标签页 -->
+        <div id="tab-album" class="tab-content">
+            <div class="grid-2">
+                <!-- 专辑类型分布 -->
+                <div class="panel">
+                    <div class="panel-header">
+                        <h2>不同专辑类型数据分析</h2>
+                        <p class="panel-desc">各类型专辑的受欢迎程度对比</p>
+                    </div>
+                    <div class="panel-body">
+                        <div id="albumTypeChart" class="chart-container"></div>
+                    </div>
+                </div>
+
+                <!-- 专辑类型TOP10 -->
+                <div class="panel">
+                    <div class="panel-header">
+                        <h2>音乐专辑类型占比TOP10</h2>
+                        <p class="panel-desc">最受欢迎的专辑类型排行</p>
+                    </div>
+                    <div class="panel-body">
+                        <div id="albumTop10Chart" class="chart-container"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 专辑类型详细统计 -->
+            <div class="panel">
+                <div class="panel-header">
+                    <h2>专辑类型详细统计</h2>
+                    <p class="panel-desc">各类型专辑的数量和评价数据</p>
+                </div>
+                <div class="panel-body">
+                    <div id="albumStatsTable"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 发布趋势标签页 -->
+        <div id="tab-trend" class="tab-content">
+            <div class="panel panel-full">
+                <div class="panel-header">
+                    <h2>音乐发布趋势折线图分析</h2>
+                    <p class="panel-desc">音乐作品发布时间趋势及市场变化分析</p>
+                </div>
+                <div class="panel-body">
+                    <div id="publishTrendChart" class="chart-container-large"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 作者分析标签页 -->
+        <div id="tab-artists" class="tab-content">
+            <div class="panel panel-full">
+                <div class="panel-header">
+                    <h2>音乐作者发布作品数量TOP5</h2>
+                    <p class="panel-desc">最活跃的音乐创作者及作品影响力</p>
+                </div>
+                <div class="panel-body">
+                    <div id="topArtistsChart" class="chart-container"></div>
+                </div>
+            </div>
+
+            <div class="panel panel-full">
+                <div class="panel-header">
+                    <h2>作者详细信息</h2>
+                </div>
+                <div class="panel-body">
+                    <div id="artistsTable"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 情感分析标签页 -->
+        <div id="tab-sentiment" class="tab-content">
+            <div class="grid-2">
+                <!-- 情感分布 -->
+                <div class="panel">
+                    <div class="panel-header">
+                        <h2>评论情感分布</h2>
+                        <p class="panel-desc">用户评论的整体情感倾向</p>
+                    </div>
+                    <div class="panel-body">
+                        <div id="sentimentDistChart" class="chart-container"></div>
+                    </div>
+                </div>
+
+                <!-- 情感趋势 -->
+                <div class="panel">
+                    <div class="panel-header">
+                        <h2>评论情感趋势分析</h2>
+                        <p class="panel-desc">用户情感随时间的变化趋势</p>
+                    </div>
+                    <div class="panel-body">
+                        <div id="sentimentTrendChart" class="chart-container"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 页脚 -->
+        <footer class="footer">
+            <p>© 2024 网易云音乐大数据分析系统 | 使用 Flask + Plotly + Python 构建</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+</body>
+</html>
