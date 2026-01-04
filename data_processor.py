@@ -12,6 +12,7 @@ matplotlib.use('Agg')  # 使用非交互式后端
 import matplotlib.pyplot as plt
 import io
 import base64
+import os
 
 
 class MusicDataProcessor:
@@ -371,7 +372,6 @@ class MusicDataProcessor:
             
             font_path = None
             for fp in font_paths:
-                import os
                 if os.path.exists(fp):
                     font_path = fp
                     break

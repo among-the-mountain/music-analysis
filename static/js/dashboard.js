@@ -472,10 +472,27 @@ function showTab(tabName) {
     // 显示选中的标签页
     document.getElementById('tab-' + tabName).classList.add('active');
     
-    // 激活对应的按钮
-    event.target.classList.add('active');
+    // 激活对应的按钮 - 通过tabName查找对应按钮
+    const buttons = document.querySelectorAll('.tab-btn');
+    buttons.forEach(btn => {
+        if (btn.textContent.includes(getTabIcon(tabName))) {
+            btn.classList.add('active');
+        }
+    });
     
     currentTab = tabName;
+}
+
+// 获取标签页图标
+function getTabIcon(tabName) {
+    const icons = {
+        'overview': '📊 数据概览',
+        'album': '💿 专辑分析',
+        'trend': '📈 发布趋势',
+        'artists': '👨‍🎤 作者分析',
+        'sentiment': '💭 情感分析'
+    };
+    return icons[tabName] || '';
 }
 
 // 重新加载数据
