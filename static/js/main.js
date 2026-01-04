@@ -101,6 +101,11 @@ function renderCharts() {
 
 // 渲染雷达图
 function renderRadarChart() {
+    if (typeof Plotly === 'undefined') {
+        renderRadarChartFallback();
+        return;
+    }
+    
     const traces = clusterStats.map((cluster, index) => {
         const features = cluster.features;
         const featureKeys = Object.keys(features);
@@ -144,6 +149,11 @@ function renderRadarChart() {
 
 // 渲染散点图
 function renderScatterChart() {
+    if (typeof Plotly === 'undefined') {
+        renderScatterChartFallback();
+        return;
+    }
+    
     const traces = clusterStats.map((cluster, index) => {
         const features = cluster.features;
         
@@ -329,4 +339,88 @@ function showDataFileInfo() {
             </div>
         `;
     }
+}
+
+// Fallback 雷达图（使用 HTML/CSS）
+function renderRadarChartFallback() {
+    const container = document.getElementById('radarChart');
+    let html = '<div class="fallback-chart"><h4 style="text-align: center; color: #667eea;">情绪簇特征对比表</h4>';
+    html += '<table style="width: 100%; border-collapse: collapse; margin-top: 20px;">';
+    html += '<thead><tr style="background: #667eea; color: white;"><th style="padding: 10px; border: 1px solid #ddd;">簇名称</th>';
+    
+    const firstCluster = clusterStats[0];
+    const featureKeys = Object.keys(firstCluster.features);
+    featureKeys.forEach(key => {
+        html += `<th style="padding: 10px; border: 1px solid #ddd;">${featureNames[key]}</th>`;
+    });
+    html += '</tr></thead><tbody>';
+    
+    clusterStats.forEach((cluster, index) => {
+        html += `<tr style="background: ${index % 2 === 0 ? '#f8f9fa' : 'white'};">`;
+        html += `<td style="padding: 10px; border: 1px solid #ddd; font-weight: bold; color: ${colors[index]}">${clusterNames[index]}</td>`;
+        featureKeys.forEach(key => {
+            const value = cluster.features[key];
+            const percentage = (value * 100).toFixed(1);
+            html += `<td style="padding: 10px; border: 1px solid #ddd; text-align: center;">
+                <div style="background: #e0e7ff; height: 20px; width: 100%; border-radius: 10px; overflow: hidden;">
+                    <div style="background: ${colors[index]}; height: 100%; width: ${percentage}%;"></div>
+                </div>
+                <small>${value.toFixed(3)}</small>
+            </td>`;
+        });
+        html += '</tr>';
+    });
+    
+    html += '</tbody></table></div>';
+    container.innerHTML = html;
+}
+
+// Fallback 散点图（使用 HTML/CSS）
+function renderScatterChartFallback() {
+    const container = document.getElementById('scatterChart');
+    let html = '<div class="fallback-chart"><h4 style="text-align: center; color: #667eea;">能量值 vs 快乐度分布</h4>';
+    html += '<div style="position: relative; width: 100%; height: 350px; border: 2px solid #e5e5e5; border-radius: 10px; margin-top: 20px; background: #f8f9fa;">';
+    
+    // 添加坐标轴
+    html += '<div style="position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: #333;"></div>';
+    html += '<div style="position: absolute; bottom: 0; left: 0; top: 0; width: 2px; background: #333;"></div>';
+    html += '<div style="position: absolute; bottom: -25px; right: 10px; font-size: 12px; color: #666;">能量值 (Energy) →</div>';
+    html += '<div style="position: absolute; top: 10px; left: -80px; font-size: 12px; color: #666; transform: rotate(-90deg); transform-origin: left;">快乐度 (Valence) →</div>';
+    
+    // 添加数据点
+    clusterStats.forEach((cluster, index) => {
+        const energy = cluster.features.energy || 0;
+        const valence = cluster.features.valence || 0;
+        const x = energy * 90 + 5; // 5-95%
+        const y = (1 - valence) * 90 + 5; // 倒置Y轴
+        const size = Math.max(20, Math.min(60, cluster.count / 20));
+        
+        html += `<div style="position: absolute; left: ${x}%; bottom: ${100-y}%; 
+                 width: ${size}px; height: ${size}px; 
+                 background: ${colors[index]}; 
+                 border-radius: 50%; 
+                 border: 2px solid white;
+                 box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+                 transform: translate(-50%, 50%);
+                 display: flex; align-items: center; justify-content: center;
+                 font-size: 10px; color: white; font-weight: bold;
+                 cursor: pointer;"
+                 title="${clusterNames[index]}\n数量: ${cluster.count}\n能量值: ${energy.toFixed(2)}\n快乐度: ${valence.toFixed(2)}">
+                 ${index+1}
+                 </div>`;
+    });
+    
+    html += '</div>';
+    
+    // 添加图例
+    html += '<div style="margin-top: 20px; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">';
+    clusterStats.forEach((cluster, index) => {
+        html += `<div style="display: flex; align-items: center; gap: 5px;">
+                 <div style="width: 15px; height: 15px; background: ${colors[index]}; border-radius: 50%;"></div>
+                 <span style="font-size: 12px;">${clusterNames[index]} (${cluster.count})</span>
+                 </div>`;
+    });
+    html += '</div></div>';
+    
+    container.innerHTML = html;
 }
