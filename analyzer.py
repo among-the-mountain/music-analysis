@@ -23,7 +23,7 @@ class MusicAnalyzer:
         """
         if data_path is None:
             # Default to sample data
-            base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+            base_dir = os.path.dirname(os.path.abspath(__file__))
             data_path = os.path.join(base_dir, 'data', 'sample_spotify_data.csv')
         
         self.data_path = data_path
