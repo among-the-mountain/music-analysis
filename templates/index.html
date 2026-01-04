@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>音乐数据分析与可视化系统</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- 头部 -->
+        <header class="header">
+            <h1>🎵 音乐数据分析与可视化系统</h1>
+            <p class="subtitle">基于K-Means聚类的Spotify音乐情绪分析</p>
+        </header>
+
+        <!-- 状态栏 -->
+        <div class="status-bar" id="statusBar">
+            <div class="status-item">
+                <span class="status-label">数据状态:</span>
+                <span class="status-value" id="dataStatus">检查中...</span>
+            </div>
+            <button class="btn-reload" id="reloadBtn" onclick="reloadData()">
+                🔄 重新加载数据
+            </button>
+        </div>
+
+        <!-- 主要内容区域 -->
+        <div class="main-content">
+            <!-- 左侧：雷达图 -->
+            <div class="panel panel-radar">
+                <div class="panel-header">
+                    <h2>情绪簇特征雷达图</h2>
+                    <p class="panel-desc">展示不同音乐簇的多维特征分布</p>
+                </div>
+                <div class="panel-body">
+                    <div id="radarChart" class="chart-container"></div>
+                </div>
+            </div>
+
+            <!-- 右侧：散点图 -->
+            <div class="panel panel-scatter">
+                <div class="panel-header">
+                    <h2>音乐簇散点分布图</h2>
+                    <p class="panel-desc">能量值 vs 效价（快乐度）二维分布</p>
+                </div>
+                <div class="panel-body">
+                    <div id="scatterChart" class="chart-container"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 下方：统计信息 -->
+        <div class="stats-section">
+            <div class="panel panel-full">
+                <div class="panel-header">
+                    <h2>簇统计信息</h2>
+                    <p class="panel-desc">每个音乐簇的详细特征数据</p>
+                </div>
+                <div class="panel-body">
+                    <div id="statsContainer" class="stats-grid"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 底部：样本音乐 -->
+        <div class="samples-section">
+            <div class="panel panel-full">
+                <div class="panel-header">
+                    <h2>样本音乐列表</h2>
+                    <p class="panel-desc">每个情绪簇的代表性音乐</p>
+                </div>
+                <div class="panel-body">
+                    <div id="samplesContainer"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 页脚 -->
+        <footer class="footer">
+            <p>© 2024 音乐数据分析系统 | 使用 Flask + K-Means + Plotly 构建</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
