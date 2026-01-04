@@ -4,7 +4,7 @@ import json
 from data_processor import MusicDataProcessor
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'your-secret-key-here'
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'dev-secret-key-change-in-production')
 
 # 全局变量存储数据处理器
 processor = None

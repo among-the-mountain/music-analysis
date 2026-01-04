@@ -11,7 +11,7 @@ const colors = [
     '#fa709a'
 ];
 
-// 情绪簇名称映射
+// 情绪簇名称映射 (可在实际使用中根据聚类特征动态调整)
 const clusterNames = [
     '高能激情簇',
     '轻松愉悦簇',
@@ -395,6 +395,9 @@ function renderScatterChartFallback() {
         const y = (1 - valence) * 90 + 5; // 倒置Y轴
         const size = Math.max(20, Math.min(60, cluster.count / 20));
         
+        // 构建tooltip内容
+        const tooltipText = `${clusterNames[index]}\n数量: ${cluster.count}\n能量值: ${energy.toFixed(2)}\n快乐度: ${valence.toFixed(2)}`;
+        
         html += `<div style="position: absolute; left: ${x}%; bottom: ${100-y}%; 
                  width: ${size}px; height: ${size}px; 
                  background: ${colors[index]}; 
@@ -405,7 +408,7 @@ function renderScatterChartFallback() {
                  display: flex; align-items: center; justify-content: center;
                  font-size: 10px; color: white; font-weight: bold;
                  cursor: pointer;"
-                 title="${clusterNames[index]}\n数量: ${cluster.count}\n能量值: ${energy.toFixed(2)}\n快乐度: ${valence.toFixed(2)}">
+                 title="${tooltipText}">
                  ${index+1}
                  </div>`;
     });

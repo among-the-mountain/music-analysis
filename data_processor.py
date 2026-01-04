@@ -81,7 +81,7 @@ class MusicDataProcessor:
                 return None
             features = self.scaled_features
         
-        self.kmeans = KMeans(n_clusters=self.n_clusters, random_state=42, n_init=10)
+        self.kmeans = KMeans(n_clusters=self.n_clusters, random_state=42, n_init='auto')
         clusters = self.kmeans.fit_predict(features)
         
         self.df['cluster'] = clusters

@@ -82,6 +82,21 @@ python app.py
 
 应用将在 `http://localhost:5000` 启动。
 
+**安全提示**: 在生产环境中，请设置环境变量 `SECRET_KEY`：
+```bash
+# Windows PowerShell
+$env:SECRET_KEY="your-secure-random-secret-key"
+python app.py
+
+# Windows CMD
+set SECRET_KEY=your-secure-random-secret-key
+python app.py
+
+# Linux/Mac
+export SECRET_KEY="your-secure-random-secret-key"
+python app.py
+```
+
 ## 使用说明
 
 1. 启动应用后，在浏览器中访问 `http://localhost:5000`
