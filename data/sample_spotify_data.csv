@@ -1,0 +1,41 @@
+track_id,track_name,artists,album_name,danceability,energy,key,loudness,mode,speechiness,acousticness,instrumentalness,liveness,valence,tempo,duration_ms,time_signature,popularity
+7qiZfU4dY1lWllzX7mPBI,Shape of You,Ed Sheeran,÷ (Divide),0.825,0.652,1,-3.183,0,0.0802,0.581,0.0,0.0931,0.931,95.977,233713,4,93
+3n3Ppam7vgaVa1iaRUc9Lp,Mr. Brightside,The Killers,Hot Fuss,0.350,0.918,1,-4.609,1,0.0862,0.0118,0.000102,0.106,0.232,148.109,222973,4,91
+0VjIjW4GlUZAMYd2vXMi3,Blinding Lights,The Weeknd,After Hours,0.514,0.730,1,-5.934,1,0.0598,0.00146,0.000913,0.0897,0.334,171.005,200040,4,95
+6DCZcSspjsKoFjzjrWoCdn,God's Plan,Drake,Scorpion,0.754,0.449,7,-9.211,1,0.109,0.0332,0.0,0.55,0.357,77.169,198973,4,88
+0sf8kmJhINr0XdRJV7LqR,Dance Monkey,Tones and I,The Kids Are Coming,0.824,0.588,6,-6.532,0,0.0924,0.693,0.0,0.121,0.513,98.029,209438,4,87
+3WMj8moIAXJhHsyLaqIIHI,Starboy,The Weeknd,Starboy,0.679,0.587,7,-7.015,1,0.283,0.141,0.0,0.137,0.486,186.003,230453,4,82
+6habFhsOp2NvshLv26DqMb,Someone Like You,Adele,21,0.499,0.166,1,-5.596,1,0.0319,0.402,0.0,0.105,0.234,67.636,285093,4,85
+2takcwOaAZWiXQijPHIx7B,Time After Time,Cyndi Lauper,She's So Unusual,0.646,0.581,8,-6.245,1,0.0323,0.121,0.0,0.103,0.754,120.034,238733,4,71
+1rfofaqEpACxVEHIZBJe6,Sunflower,Post Malone,Spider-Man: Into the Spider-Verse,0.76,0.48,0,-6.051,1,0.0465,0.568,0.0,0.118,0.764,89.977,157560,4,89
+4cOdK2wGLETKBW3PvgPWqT,Rockstar,Post Malone,beerbongs & bentleys,0.587,0.526,5,-6.090,0,0.0898,0.124,0.0,0.125,0.145,159.847,218147,4,84
+37BZB0z9T8Xu7U3e65qxFy,Señorita,Shawn Mendes,Señorita,0.760,0.545,9,-5.934,1,0.0298,0.0530,0.0,0.0831,0.750,117.973,190960,4,90
+0tgVpDi06FyKpA1z0VMD4v,Perfect,Ed Sheeran,÷ (Divide),0.599,0.448,10,-6.357,1,0.0232,0.413,0.0,0.132,0.363,95.050,263400,4,88
+5CtI0qwDJkDQGwXD1H1cLb,Closer,The Chainsmokers,Collage,0.748,0.524,8,-6.269,1,0.0338,0.414,0.0,0.111,0.661,95.010,244960,4,82
+6RUKPb4LETWmmr3iAEQktW,Faded,Alan Walker,Different World,0.439,0.833,9,-5.483,0,0.0367,0.0103,0.903,0.111,0.127,90.008,212733,4,79
+0DiWol3AO6WpXZgp0goxAV,One Dance,Drake,Views,0.793,0.625,11,-5.609,0,0.0534,0.0383,0.0172,0.111,0.349,103.966,173987,4,85
+3qiyyUfYe7CRYLucrPmulD,Stay,The Kid LAROI,F*CK LOVE 3: OVER YOU,0.591,0.764,1,-3.713,0,0.0483,0.0383,0.0,0.103,0.478,169.928,141806,4,92
+7MXVkk9YMctZqd1Srtv4MB,Starships,Nicki Minaj,Pink Friday: Roman Reloaded,0.851,0.735,6,-3.525,0,0.0878,0.00383,0.00686,0.274,0.923,125.022,210320,4,77
+2a2zJP5eE5WlW7B2oQ7VbV,Watermelon Sugar,Harry Styles,Fine Line,0.548,0.816,5,-4.209,1,0.0465,0.122,0.0,0.338,0.557,95.039,174000,4,91
+1Cv1raINaCRSJB3Wz0Xfms,Levitating,Dua Lipa,Future Nostalgia,0.702,0.825,6,-3.787,0,0.0601,0.00883,0.0000126,0.0674,0.915,102.977,203064,4,89
+5Z01UMMf7V1o0MzF86s6WJ,Bad Guy,Billie Eilish,WHEN WE ALL FALL ASLEEP,0.560,0.425,11,-11.301,1,0.378,0.296,0.0511,0.0966,0.425,135.928,194088,4,90
+3a1lNhkSLSkpJE4MSHpDu9,Happier,Marshmello,Happier,0.687,0.621,9,-3.412,1,0.0318,0.0161,0.0,0.111,0.688,99.960,213640,4,81
+0pqnGHJpmpxLKifKRmU6WP,Bohemian Rhapsody,Queen,A Night at the Opera,0.513,0.394,11,-6.264,1,0.0434,0.365,0.000101,0.213,0.506,71.695,354947,4,84
+3WqnhH1ZxgAqJmNtkw0v37,Believer,Imagine Dragons,Evolve,0.778,0.779,10,-4.374,0,0.123,0.0588,0.0,0.0826,0.593,124.976,204347,4,86
+0C80GCp0mMuBzLf3EAXqxv,Uptown Funk,Mark Ronson,Uptown Special,0.896,0.645,5,-4.095,0,0.182,0.0322,0.0,0.0783,0.916,115.022,269667,4,81
+6I9VzXrHxO9rA9A5euc8Ac,Toxic,Britney Spears,In The Zone,0.645,0.666,3,-5.589,0,0.0574,0.0111,0.000214,0.0861,0.404,143.014,198800,4,78
+4iV5W9uYEdYUVa79Axb7Rh,New Rules,Dua Lipa,Dua Lipa,0.762,0.700,1,-6.021,0,0.0694,0.00383,0.0,0.0926,0.608,116.073,209320,4,80
+7BqBn9nzAq8spo5e7cZ0dJ,Happier Than Ever,Billie Eilish,Happier Than Ever,0.438,0.151,9,-15.465,0,0.0396,0.717,0.0,0.105,0.119,90.052,298567,4,87
+3KkXRkHbMCARz0aVfEt68,Don't Start Now,Dua Lipa,Future Nostalgia,0.793,0.793,6,-4.521,0,0.0917,0.00461,0.000107,0.0749,0.679,123.964,183290,4,88
+2dHHgzDwk4BJdRwy9uXhTO,Cake By The Ocean,DNCE,DNCE,0.727,0.793,9,-4.191,0,0.0431,0.00383,0.0,0.0847,0.962,119.015,218733,4,76
+5sdQOyqq2IDhvmx2lHOpwd,Sweet Child O' Mine,Guns N' Roses,Appetite for Destruction,0.552,0.729,10,-4.612,1,0.0301,0.000233,0.0148,0.353,0.931,125.038,303067,4,82
+6PCUP3dWmTjcTtXY02oFdT,Smells Like Teen Spirit,Nirvana,Nevermind,0.502,0.912,1,-6.410,0,0.0618,0.00383,0.000118,0.134,0.534,116.761,301920,4,85
+0nbXyq5TXYPCO7pr3N8S4I,Sweet Dreams,Eurythmics,Sweet Dreams (Are Made of This),0.641,0.831,4,-9.335,0,0.0396,0.00383,0.419,0.0994,0.746,120.959,216133,4,76
+3cfOd4CMv2snFaKAnMdnvK,Take On Me,a-ha,Hunting High and Low,0.560,0.850,9,-7.301,1,0.0336,0.00383,0.0,0.275,0.833,168.924,225280,4,80
+1w5Kfo2jwwIPruYS2UWkrc,Seven Nation Army,The White Stripes,Elephant,0.484,0.716,4,-4.950,0,0.0359,0.00383,0.476,0.111,0.461,123.776,231733,4,79
+5ghIJDpPoe3CfHMGu71E6T,Never Gonna Give You Up,Rick Astley,Whenever You Need Somebody,0.693,0.880,10,-7.280,0,0.0883,0.0232,0.0,0.171,0.899,113.048,213573,4,75
+1zB4vmk8tFRmM9UULNzbLB,Come As You Are,Nirvana,Nevermind,0.465,0.511,1,-9.410,0,0.0379,0.00383,0.0461,0.151,0.336,119.942,219200,4,82
+3DamFFqW32WihKkTVlwTYQ,Billie Jean,Michael Jackson,Thriller,0.831,0.487,11,-5.276,0,0.0611,0.0214,0.000192,0.211,0.425,117.090,294107,4,83
+0di326kU9GhWnEORWcRDc6,Africa,Toto,Toto IV,0.621,0.518,11,-11.038,0,0.0401,0.235,0.0,0.111,0.601,92.990,295893,4,80
+4Cy0NHJ8Gh0xMdwyM9RkQm,Girls Just Want to Have Fun,Cyndi Lauper,She's So Unusual,0.776,0.854,7,-5.897,1,0.0465,0.0232,0.0,0.163,0.955,119.894,235733,4,77
+5XeFesFbtLpXzIVDNQP22n,Livin' on a Prayer,Bon Jovi,Slippery When Wet,0.567,0.870,4,-5.245,0,0.0465,0.00383,0.0,0.341,0.801,122.958,249333,4,80

@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+
+{% block title %}Analysis - Music Analysis{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="page-header">
+        <h1>📊 Detailed Music Analysis</h1>
+        <p>Interactive visualizations of music features and emotion clusters</p>
+    </div>
+    
+    <div class="chart-section">
+        <div class="chart-container">
+            <h2>🌐 All Clusters - Feature Comparison</h2>
+            <p class="chart-description">Radar chart showing the characteristic profile of each emotion cluster</p>
+            <div class="chart-box">
+                {{ radar_all|safe }}
+            </div>
+        </div>
+    </div>
+    
+    <div class="chart-section">
+        <div class="chart-container">
+            <h2>📍 Track Distribution - Energy vs Valence</h2>
+            <p class="chart-description">Scatter plot showing how tracks are distributed across energy and happiness dimensions</p>
+            <div class="chart-box">
+                {{ scatter_plot|safe }}
+            </div>
+        </div>
+    </div>
+    
+    <div class="chart-section">
+        <div class="chart-container">
+            <h2>🎯 3D Feature Space Visualization</h2>
+            <p class="chart-description">Interactive 3D view of tracks in the danceability-energy-valence space</p>
+            <div class="chart-box">
+                {{ scatter_3d|safe }}
+            </div>
+        </div>
+    </div>
+    
+    <div class="chart-grid">
+        <div class="chart-container">
+            <h2>📊 Cluster Distribution</h2>
+            <p class="chart-description">Number of tracks in each emotion cluster</p>
+            <div class="chart-box">
+                {{ distribution_plot|safe }}
+            </div>
+        </div>
+        
+        <div class="chart-container">
+            <h2>🔥 Feature Heatmap</h2>
+            <p class="chart-description">Feature intensity across all clusters</p>
+            <div class="chart-box">
+                {{ heatmap|safe }}
+            </div>
+        </div>
+    </div>
+    
+    <div class="insights-section">
+        <h2>💡 Key Insights</h2>
+        <div class="insights-grid">
+            <div class="insight-card">
+                <h3>🎭 Emotion Clustering</h3>
+                <p>The K-Means algorithm has successfully grouped tracks into distinct emotional categories based on their multi-dimensional features.</p>
+            </div>
+            
+            <div class="insight-card">
+                <h3>📈 Feature Patterns</h3>
+                <p>Tracks with high energy and valence tend to cluster together, representing upbeat and happy music.</p>
+            </div>
+            
+            <div class="insight-card">
+                <h3>🎸 Acoustic vs Electronic</h3>
+                <p>Clear separation between acoustic and electronic tracks based on acousticness and instrumentalness features.</p>
+            </div>
+            
+            <div class="insight-card">
+                <h3>💃 Danceability Factor</h3>
+                <p>Danceability strongly correlates with energy levels, creating distinct clusters for dance-oriented music.</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
