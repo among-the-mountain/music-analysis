@@ -82,6 +82,17 @@ python app.py
 
 应用将在 `http://localhost:5000` 启动。
 
+**开发模式**: 如需启用调试模式（自动重载等），设置环境变量：
+```bash
+# Windows PowerShell
+$env:FLASK_DEBUG="true"
+python app.py
+
+# Linux/Mac
+export FLASK_DEBUG=true
+python app.py
+```
+
 **安全提示**: 在生产环境中，请设置环境变量 `SECRET_KEY`：
 ```bash
 # Windows PowerShell

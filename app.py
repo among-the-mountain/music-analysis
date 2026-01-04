@@ -87,4 +87,7 @@ if __name__ == '__main__':
     # 启动Flask应用
     print("\n启动服务器...")
     print("访问 http://localhost:5000 查看应用")
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    
+    # 从环境变量读取调试模式设置，生产环境应设为False
+    debug_mode = os.environ.get('FLASK_DEBUG', 'False').lower() == 'true'
+    app.run(debug=debug_mode, host='0.0.0.0', port=5000)
