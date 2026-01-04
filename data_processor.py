@@ -177,7 +177,12 @@ class MusicDataProcessor:
         if not self.load_data(filepath):
             return False
         
-        # 提取特征
+        # 如果是网易云音乐数据，不需要特征提取和聚类
+        if self.is_netease_data:
+            print("网易云音乐数据已准备好进行分析")
+            return True
+        
+        # 如果是Spotify数据，进行特征提取和聚类
         features = self.extract_features()
         if features is None:
             return False
